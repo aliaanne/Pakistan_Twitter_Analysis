@@ -52,50 +52,65 @@ Merges English language tweets in KP with translated Urdu and Pashto tweets.
 #016. Descriptive Statistics For KP Users.ipynb
 Generates descriptive plots such as number of tweets over time, number of unique users over time, languages in the dataset, and language distribution among users in KP. 
 
-#017. Pie Charts of Tweets Manually Designated to Topics of Interest in KP.ipynb
-Generates pie charts based on 
+#017. Bot Detection - Calculating SD of Tweet Intervals and Average Tweets Per Day for KP users.ipynb
+Uses formula to determine the standard deviation of the distribution of each user's tweet frequency.  SD's close to zero suggest uniform tweeting intervals and suggests the user might be a bot. Users with SD's less than 60 minutes are saved in a "potential bots" dataframe. Uses formula to determine average tweets per day per user.  Users with average tweets per day greater than 25 are suspected bots and saved in a "potential bots" dataframe.
 
-018. Analysis of Manually Categorized Service Delivery Tweets in KP.ipynb
-2 days ago512 kB
-019. Bot Detection - Calculating SD of Tweet Intervals and Average Tweets Per Day for KP users.ipynb
-2 days ago412 kB
-020. KP Topic Modeling.ipynb
-4 hours ago10.2 kB
+018. KP Topic Modeling.ipynb
+Users Short Text Topic Modeling (STTM) on KP tweets with k=25. Saves a dataframe with the 8 most important words in each topic as well as the frequency of those topics in the data. Assigns a topic to each tweet and a percentage fit for each tweet in each topic and saves the dataframe.
+
+019. Plotting Distribution of Topics in KP.ipynb
+Creates pie chart showing distribution of topics in the data. 
+
+020. Plotting Change in Topics Over Time.ipynb
+Creates stacked area plot to show changes in topic distribution over time.
+
 021. English Sentiment Analysis - Inside and Outside of KP.ipynb
-2 days ago10.7 kB
-022. Urdu and Pashto Sentiment Analysis - Inside and Outside KP.ipynb
-2 days ago7.71 kB
-023. Plotting Distribution of Topics in KP.ipynb
-4 hours ago3.91 kB
-024. Combining Sentiment Score Results in Different Languages.ipynb
-4 hours ago4.22 kB
-025. Plotting Sentiment Analysis in Pakistan versus KP.ipynb
-4 hours ago468 kB
-026. Plotting Change in Topics Over Time.ipynb
-4 hours ago526 kB
-027. Combining Topic and Sentiment Data in KP Tweets.ipynb
-4 hours ago3.8 kB
-028. Assigning sub-categories in Municipal Issues Topic.ipynb
-4 hours ago26.3 kB
-029. Assigning sub-categories in Corruption Topic.ipynb
-4 hours ago16.5 kB
-030. Assigning sub-categories in Economy Topic.ipynb
-4 hours ago17.4 kB
-031. Assigning sub-categories in Violent Conflict Topic.ipynb
-4 hours ago18.3 kB
-032. Assigning sub-categories in Political Debate.ipynb
-4 hours ago14.9 kB
-033. Assigning sub-categories in Party Politics.ipynb
-3 hours ago25.4 kB
-034. Assigning sub-categories in Family and Gender .ipynb
-3 hours ago15.4 kB
-035. Assigning sub-categories in Supreme Court Nawaz Sharif.ipynb
-3 hours ago15.4 kB
-036. Plotting Subtopic Data for Each Topic from Topic Modeling.ipynb
-an hour ago960 kB
-037. Removing Suspected Bots from KP Dataframe.ipynb
-2 hours ago3.14 kB
-038. Assigning KP Tweets since 2018 to Categories based on Keywords.ipynb
-2 hours ago84 kB
-039. Plotting Subtopic Data for Each Topic from Topic Modeling.ipynb
+Uses hedonometer dictionary (hedonometer.org) to calculate the sentiment of English-language tweets in the data on a scale of 1-9.  Saves sentiment score, standard deviation of the score estimate, and words that contributed to the score in columns in the dataframe for each tweet.
 
+022. Urdu and Pashto Sentiment Analysis - Inside and Outside KP.ipynb
+Uses a hedonometers trandlated into Urdu and Pashto respectively (via Google Translate) to calculate the sentiment of Urdu and Pashto language tweets in their original un-translated form. Saves sentiment score, standard deviation of the score estimate, and words that contributed to the score in columns in the dataframe for each tweet.
+
+023. Combining Sentiment Score Results in Different Languages.ipynb
+Merges dataframes with sentiment scores from English, Urdu, and Pashto.
+
+024. Plotting Sentiment Analysis in Pakistan versus KP.ipynb
+Plots timeseries of sentiment in KP, in Pakistan versus KP, and excess sentiment of KP compared to Pakistan.
+
+025. Combining Topic and Sentiment Data in KP Tweets.ipynb
+Merges main tweets dataframe with topics and sentiment dataframes.
+
+026. Assigning sub-categories in Municipal Issues Topic.ipynb
+Uses keyword analysis to assign sub-categories in the topic and generates a dataframe of only these tweets categorized by sub-topic.
+
+027. Assigning sub-categories in Corruption Topic.ipynb
+Uses keyword analysis to assign sub-categories in the topic and generates a dataframe of only these tweets categorized by sub-topic.
+
+028. Assigning sub-categories in Economy Topic.ipynb
+Uses keyword analysis to assign sub-categories in the topic and generates a dataframe of only these tweets categorized by sub-topic.
+
+029. Assigning sub-categories in Violent Conflict Topic.ipynb
+Uses keyword analysis to assign sub-categories in the topic and generates a dataframe of only these tweets categorized by sub-topic.
+
+030. Assigning sub-categories in Political Debate.ipynb
+Uses keyword analysis to assign sub-categories in the topic and generates a dataframe of only these tweets categorized by sub-topic.
+
+031. Assigning sub-categories in Party Politics.ipynb
+Uses keyword analysis to assign sub-categories in the topic and generates a dataframe of only these tweets categorized by sub-topic.
+
+032. Assigning sub-categories in Family and Gender .ipynb
+Uses keyword analysis to assign sub-categories in the topic and generates a dataframe of only these tweets categorized by sub-topic.
+
+033. Assigning sub-categories in Supreme Court Nawaz Sharif.ipynb
+Uses keyword analysis to assign sub-categories in the topic and generates a dataframe of only these tweets categorized by sub-topic.
+
+034. Plotting Subtopic Data for Each Topic from Topic Modeling.ipynb
+For each dataframe generated in 026-033, generates stacked timeseries representing the percentage of tweets on each topic over time, barcharts showing the percentage difference between subtopic sentiment and median sentiment for all tweets, barchart of most common bigrams in the topic, barcharts of most common words in the topic, barcharts of most common hashtags in the topic, chloropleth map showing percentage of users tweeting about the topic per city, and a stacked barchart showing the percentage of users tweeting about each sub-topic within each city. 
+
+035. Removing Suspected Bots from KP Dataframe.ipynb
+Loads the user id's of potential bots identified by standard deviation of tweet intervals and tweet frequency.  Determines users who started tweeting after 2019 and adds them to list of potential bots (as bot detection may not have had time to catch them). Removes all users identified as potential bots. 
+
+036. Assigning KP Tweets since 2018 to Categories based on Keywords.ipynb
+Uses keyword search analysis to group data into categories of interest based on the primary research question.  Outputs eight dataframes on different categories of interest with dummy variable columns identifying sub-categories in each category.
+
+037. Analysis of Keyword Categorized Tweet Categories in KP.ipynb
+For each dataframe generated in 036, generates stacked timeseries representing the percentage of tweets on each category over time, barcharts showing the percentage difference between sub-category sentiment and median sentiment for all tweets, barchart of most common bigrams in each category, barcharts of most common words in each category, barcharts of most common hashtags in each category, chloropleth map showing percentage of users tweeting about each category per city, and a stacked barchart showing the percentage of users tweeting about each sub-category within each city. 
